@@ -1,23 +1,30 @@
 #coding: utf-8
 
 from part30 import *
-        
-if __name__ == "__main__":
-  import sys
-  from collections import defaultdict
-  mecab_file = open(sys.argv[1], 'r')
+from collections import defaultdict
+from collections import OrderedDict
+
+def getWordFreqDict(mecab_file):
+  line_list = makeLineList(mecab_file)
   
   base = 'base'
-  
   word_frequency = defaultdict(lambda:0)
-  
-  line_list = makeLineList(mecab_file)
+
   for morpheme_list in line_list:
     for morpheme_dict in morpheme_list:
       word_frequency[morpheme_dict[base] ] += 1
-      
-  count = 1
-  for word, frequency in sorted(word_frequency.items(), key = lambda x:-x[1]):
-    print word, frequency
-    count += 1
-    if count > 10: break
+            
+  return word_frequency
+  
+if __name__ == "__main__":
+  import sys
+  
+  mecab_file = open(sys.argv[1], 'r')
+  
+  freq_words = getWordFreqDict(mecab_file)
+  for i, j in freq_words.items():
+    print i, j
+    
+    
+    
+    
