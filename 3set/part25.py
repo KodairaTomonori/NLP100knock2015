@@ -1,5 +1,4 @@
 #coding: utf-8
-# Jsonファイルの読み込み
 
 if __name__ == "__main__":
   import re

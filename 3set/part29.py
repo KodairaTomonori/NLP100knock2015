@@ -29,6 +29,7 @@ if __name__ == "__main__":
       
       # json 形式なのでjson.loadsで辞書に変換
       dict_sentence = json.loads(json_sentence)
+      print dict_sentence
       # 辞書のからurl参照
       url = dict_sentence['query']['pages']['-1']['imageinfo'][0]['url']
       print url

@@ -11,8 +11,9 @@ def logLogGraph(word_freq_dict):
   for i, j in sorted(word_freq_dict.items(), key = lambda x: -x[1]):
     freq_list.append(j)
   
-  plt.semilogy(freq_list)
-  plt.semilogx(range(0, len(freq_list)))
+  #plt.semilogy(freq_list)
+  #plt.semilogx(range(0, len(freq_list)))
+  plt.loglog(range(0, len(freq_list)), freq_list)
   plt.title('Log-log graph')
   plt.xlabel('Rank')
   plt.ylabel('Frequency')
